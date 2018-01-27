@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在配置Golang的beego框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启东时首先加载，一般情况下不建议做任何修">
+<meta name="description" content="在配置 Golang 的 beego 框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启动时首先加载，一般情况下不建议">
 <meta name="keywords" content="mac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac配置环境变量">
 <meta property="og:url" content="http://blog.may2.cn/2018/01/27/mac-configuration-environment-variables.html">
 <meta property="og:site_name" content="王振的技术博客">
-<meta property="og:description" content="在配置Golang的beego框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启东时首先加载，一般情况下不建议做任何修">
+<meta property="og:description" content="在配置 Golang 的 beego 框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启动时首先加载，一般情况下不建议">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-27T09:32:09.056Z">
+<meta property="og:updated_time" content="2018-01-27T09:42:46.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac配置环境变量">
-<meta name="twitter:description" content="在配置Golang的beego框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启东时首先加载，一般情况下不建议做任何修">
+<meta name="twitter:description" content="在配置 Golang 的 beego 框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启动时首先加载，一般情况下不建议">
 
 
 
@@ -320,9 +320,9 @@
       
 
       
-        <p>在配置Golang的beego框架的环境时，需要配置 <code>$GOPATH</code> 的环境变量，之前对<code>Linux/Unix</code> 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。</p>
+        <p>在配置 <code>Golang</code> 的 <code>beego</code> 框架的环境时，需要配置 <code>$GOPATH</code> 的环境变量，之前对<code>Linux/Unix</code> 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。</p>
 <h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><p><strong>以下操作均在root权限下进行。</strong></p>
-<p><code>/etc/profile</code> 和 <code>/etc/paths</code> 这两个配置文件是<strong>系统级别</strong>、<strong>全局有效</strong>的，<code>/etc/profile</code> 会在系统启东时首先加载，<strong>一般情况下不建议做任何修改</strong>。若要配置全局的环境变量，可以修改 <code>/etc/paths</code>。</p>
+<p><code>/etc/profile</code> 和 <code>/etc/paths</code> 这两个配置文件是<strong>系统级别</strong>、<strong>全局有效</strong>的，<code>/etc/profile</code> 会在系统启动时首先加载，<strong>一般情况下不建议做任何修改</strong>。若要配置全局的环境变量，可以修改 <code>/etc/paths</code>。</p>
 <p>但是在某种情况下，<code>/etc/paths</code> 会在系统升级时被修改或替代。</p>
 <p>还有一种更优雅、更安全的方式，即添加PATH到 <code>/etc/path.d</code>。</p>
 <p>比如，我要添加MySQL的环境变量，运行以下命令：</p>
@@ -331,10 +331,10 @@
 <h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><p>先简单介绍一下 <code>.bash_profile</code> 和 <code>.bashrc</code>  的区别：</p>
 <p><code>.bash_profile</code> 在交互式、login 方式进入 <code>bash</code> 时加载</p>
 <p><code>.bashrc</code> 在交互式、non-login方式进入 <code>bash</code> 时加载</p>
-<p>当你打开一个终端，它不要求登录，你只会看到命令提示符，它在等你键入命令，这就是login方式。在其他版本的Unix或Linux中，这将不会运行.bash_profile，而是一个不同的文件.bashrc。</p>
+<p>当你打开一个终端，它不要求登录，你只会看到命令提示符，它在等你键入命令，这就是login方式。在其他版本的Unix或Linux中，这将不会运行 <code>.bash_profile</code>，而是一个不同的文件 <code>.bashrc</code>。</p>
 <p>当你远程登录你的服务器时，它要求你输入用户名和密码，这就是non-login方式。</p>
-<p>也就是说登录时只运行.bash_profile，每个新的交互式shell都加载 <code>.bashrc</code>。</p>
-<p>但是，<strong>Mac系统并不遵循这一约定</strong>。当你打开一个新的终端窗口时，它将加载 <code>.bash_profile</code>而非 <code>.bashrc</code>。如果你用的 bash <code>shell</code>，那么你可以尝试在 <code>.bash_profile</code> 追加一行 <code>echo &quot;Hello&quot;</code> 并保存，然后打开新的终端窗口，你会发现 <code>Hello</code> 得以输出。</p>
+<p>也就是说登录时只运行 <code>.bash_profile</code>，每个新的交互式shell都加载 <code>.bashrc</code>。</p>
+<p>但是，<strong>Mac系统并不遵循这一约定</strong>。当你打开一个新的终端窗口时，它将加载 <code>.bash_profile</code>而非 <code>.bashrc</code>。如果你用的  <code>bash shell</code>，那么你可以尝试在 <code>.bash_profile</code> 追加一行 <code>echo &quot;Hello&quot;</code> 并保存，然后打开新的终端窗口，你会发现 <code>Hello</code> 得以输出。</p>
 <p>如果你只在Mac系统下应用你的这些配置，那么一个 <code>.bash_profile</code> 就够了。</p>
 <p>如果你想让你的配置更具扩展性，那么就把配置放在 <code>.bashrc</code> 文件里，然后在 <code>.bash_profile</code> 里写入以下代码：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ -r ~/.bashrc ]; then</span><br><span class="line">   source ~/.bashrc</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
