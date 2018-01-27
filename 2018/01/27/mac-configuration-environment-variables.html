@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mac," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="开黑吗？我打ADC！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王振的技术博客">
-<meta property="og:url" content="http://blog.may2.cn/index.html">
+<meta name="description" content="在配置Golang的beego框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启东时首先加载，一般情况下不建议做任何修">
+<meta name="keywords" content="mac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac配置环境变量">
+<meta property="og:url" content="http://blog.may2.cn/2018/01/27/mac-configuration-environment-variables.html">
 <meta property="og:site_name" content="王振的技术博客">
-<meta property="og:description" content="开黑吗？我打ADC！">
+<meta property="og:description" content="在配置Golang的beego框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启东时首先加载，一般情况下不建议做任何修">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-27T09:32:09.056Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王振的技术博客">
-<meta name="twitter:description" content="开黑吗？我打ADC！">
+<meta name="twitter:title" content="Mac配置环境变量">
+<meta name="twitter:description" content="在配置Golang的beego框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启东时首先加载，一般情况下不建议做任何修">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.may2.cn/"/>
+  <link rel="canonical" href="http://blog.may2.cn/2018/01/27/mac-configuration-environment-variables.html"/>
 
 
 
 
 
-  <title>王振的技术博客</title>
+  <title>Mac配置环境变量 | 王振的技术博客</title>
   
 
 
@@ -153,8 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,9 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/27/mac-configuration-environment-variables.html" itemprop="url">Mac配置环境变量</a></h1>
+          <h1 class="post-title" itemprop="name headline">Mac配置环境变量</h1>
         
 
         <div class="post-meta">
@@ -321,20 +320,29 @@
       
 
       
-        
-          
-          在配置Golang的beego框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。
-全局配置以下操作均在root权限下进行。
-/etc/profile 和 /etc/paths 这两个配置文
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/27/mac-configuration-environment-variables.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>在配置Golang的beego框架的环境时，需要配置 <code>$GOPATH</code> 的环境变量，之前对<code>Linux/Unix</code> 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。</p>
+<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><p><strong>以下操作均在root权限下进行。</strong></p>
+<p><code>/etc/profile</code> 和 <code>/etc/paths</code> 这两个配置文件是<strong>系统级别</strong>、<strong>全局有效</strong>的，<code>/etc/profile</code> 会在系统启东时首先加载，<strong>一般情况下不建议做任何修改</strong>。若要配置全局的环境变量，可以修改 <code>/etc/paths</code>。</p>
+<p>但是在某种情况下，<code>/etc/paths</code> 会在系统升级时被修改或替代。</p>
+<p>还有一种更优雅、更安全的方式，即添加PATH到 <code>/etc/path.d</code>。</p>
+<p>比如，我要添加MySQL的环境变量，运行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/paths.d/mysql</span><br></pre></td></tr></table></figure>
+<p>键入路径并保存，打开新的终端即可生效。</p>
+<h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><p>先简单介绍一下 <code>.bash_profile</code> 和 <code>.bashrc</code>  的区别：</p>
+<p><code>.bash_profile</code> 在交互式、login 方式进入 <code>bash</code> 时加载</p>
+<p><code>.bashrc</code> 在交互式、non-login方式进入 <code>bash</code> 时加载</p>
+<p>当你打开一个终端，它不要求登录，你只会看到命令提示符，它在等你键入命令，这就是login方式。在其他版本的Unix或Linux中，这将不会运行.bash_profile，而是一个不同的文件.bashrc。</p>
+<p>当你远程登录你的服务器时，它要求你输入用户名和密码，这就是non-login方式。</p>
+<p>也就是说登录时只运行.bash_profile，每个新的交互式shell都加载 <code>.bashrc</code>。</p>
+<p>但是，<strong>Mac系统并不遵循这一约定</strong>。当你打开一个新的终端窗口时，它将加载 <code>.bash_profile</code>而非 <code>.bashrc</code>。如果你用的 bash <code>shell</code>，那么你可以尝试在 <code>.bash_profile</code> 追加一行 <code>echo &quot;Hello&quot;</code> 并保存，然后打开新的终端窗口，你会发现 <code>Hello</code> 得以输出。</p>
+<p>如果你只在Mac系统下应用你的这些配置，那么一个 <code>.bash_profile</code> 就够了。</p>
+<p>如果你想让你的配置更具扩展性，那么就把配置放在 <code>.bashrc</code> 文件里，然后在 <code>.bash_profile</code> 里写入以下代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ -r ~/.bashrc ]; then</span><br><span class="line">   source ~/.bashrc</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>或这样的一行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -r ~/.bashrc ] &amp;&amp; . ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>目的都是一样的。</p>
+<p>对于 <code>zsh shell</code>，我们只需修改 <code>.zshrc</code>。不过为了提高扩展性，最好不要把配置直接写在 <code>.zshrc</code> 里面。</p>
+
       
     </div>
     
@@ -349,270 +357,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.may2.cn/2017/02/26/Hamming-Distance.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王振">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王振的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/26/Hamming-Distance.html" itemprop="url">Hamming Distance(汉明距离)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-26T20:31:00+08:00">
-                2017-02-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/mac/" rel="tag"># mac</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          IntroductionThe Hamming distance between two integers is the number of positions at which the corresponding bits are different.Given two integers x an
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/26/Hamming-Distance.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/26/Hamming-Distance.html" rel="next" title="Hamming Distance(汉明距离)">
+                <i class="fa fa-chevron-left"></i> Hamming Distance(汉明距离)
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.may2.cn/2017/02/21/log-in-to-the-server-using-ssh-key.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王振">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="王振的技术博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/21/log-in-to-the-server-using-ssh-key.html" itemprop="url">SSH免密码登录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-21T19:27:00+08:00">
-                2017-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          生成密钥对
-1ssh-keygen -t rsa -C "your email"
-将生成的公钥即 ~/.ssh/id_rsa.pub 填入目标服务器的 ~/.ssh/authorized_keys，查看生成的公钥：
-1cat ~/.ssh/id_rsa.pub
-如果无效，那么执行以下命令查看最近20
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/21/log-in-to-the-server-using-ssh-key.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -622,10 +396,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -633,6 +408,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -653,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -709,6 +497,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局配置"><span class="nav-number">1.</span> <span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户配置"><span class="nav-number">2.</span> <span class="nav-text">用户配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -849,6 +653,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
