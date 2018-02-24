@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="mac," />
+  <meta name="keywords" content="php,laravel," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在配置 Golang 的 beego 框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启动时首先加载，一般情况下不建议">
-<meta name="keywords" content="mac">
+<meta name="description" content="1. 安装 predisLaravel默认使用的 redis client 为 predis，composer 安装： 1composer require predis/predis 2. 修改数据库配置打开 config/database.php ，我们可以看到默认配置为： 123456789101112&apos;redis&apos; =&amp;gt; [    &apos;client&apos; =&amp;gt; &apos;predis&apos;,">
+<meta name="keywords" content="php,laravel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac配置环境变量">
-<meta property="og:url" content="http://blog.may2.cn/2018/01/27/mac-configuration-environment-variables.html">
+<meta property="og:title" content="Laravel使用redis作为session驱动">
+<meta property="og:url" content="http://blog.may2.cn/2018/02/24/Laravel-uses-redis-as-a-session-driver.html">
 <meta property="og:site_name" content="王振的技术博客">
-<meta property="og:description" content="在配置 Golang 的 beego 框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启动时首先加载，一般情况下不建议">
+<meta property="og:description" content="1. 安装 predisLaravel默认使用的 redis client 为 predis，composer 安装： 1composer require predis/predis 2. 修改数据库配置打开 config/database.php ，我们可以看到默认配置为： 123456789101112&apos;redis&apos; =&amp;gt; [    &apos;client&apos; =&amp;gt; &apos;predis&apos;,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-27T09:42:46.216Z">
+<meta property="og:updated_time" content="2018-02-24T13:39:04.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac配置环境变量">
-<meta name="twitter:description" content="在配置 Golang 的 beego 框架的环境时，需要配置 $GOPATH 的环境变量，之前对Linux/Unix 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。 全局配置以下操作均在root权限下进行。 /etc/profile 和 /etc/paths 这两个配置文件是系统级别、全局有效的，/etc/profile 会在系统启动时首先加载，一般情况下不建议">
+<meta name="twitter:title" content="Laravel使用redis作为session驱动">
+<meta name="twitter:description" content="1. 安装 predisLaravel默认使用的 redis client 为 predis，composer 安装： 1composer require predis/predis 2. 修改数据库配置打开 config/database.php ，我们可以看到默认配置为： 123456789101112&apos;redis&apos; =&amp;gt; [    &apos;client&apos; =&amp;gt; &apos;predis&apos;,">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.may2.cn/2018/01/27/mac-configuration-environment-variables.html"/>
+  <link rel="canonical" href="http://blog.may2.cn/2018/02/24/Laravel-uses-redis-as-a-session-driver.html"/>
 
 
 
 
 
-  <title>Mac配置环境变量 | 王振的技术博客</title>
+  <title>Laravel使用redis作为session驱动 | 王振的技术博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.may2.cn/2018/01/27/mac-configuration-environment-variables.html">
+    <link itemprop="mainEntityOfPage" href="http://blog.may2.cn/2018/02/24/Laravel-uses-redis-as-a-session-driver.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王振">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac配置环境变量</h1>
+          <h1 class="post-title" itemprop="name headline">Laravel使用redis作为session驱动</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T15:56:00+08:00">
-                2018-01-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-24T20:31:00+08:00">
+                2018-02-24
               </time>
             
 
@@ -320,28 +320,25 @@
       
 
       
-        <p>在配置 <code>Golang</code> 的 <code>beego</code> 框架的环境时，需要配置 <code>$GOPATH</code> 的环境变量，之前对<code>Linux/Unix</code> 下的环境变量配置都不是很了解，经过简单了解，梳理了一下Mac下的环境变量配置方法。</p>
-<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><p><strong>以下操作均在root权限下进行。</strong></p>
-<p><code>/etc/profile</code> 和 <code>/etc/paths</code> 这两个配置文件是<strong>系统级别</strong>、<strong>全局有效</strong>的，<code>/etc/profile</code> 会在系统启动时首先加载，<strong>一般情况下不建议做任何修改</strong>。若要配置全局的环境变量，可以修改 <code>/etc/paths</code>。</p>
-<p>但是在某种情况下，<code>/etc/paths</code> 会在系统升级时被修改或替代。</p>
-<p>还有一种更优雅、更安全的方式，即添加PATH到 <code>/etc/path.d</code>。</p>
-<p>比如，我要添加MySQL的环境变量，运行以下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/paths.d/mysql</span><br></pre></td></tr></table></figure>
-<p>键入路径并保存，打开新的终端即可生效。</p>
-<h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><p>先简单介绍一下 <code>.bash_profile</code> 和 <code>.bashrc</code>  的区别：</p>
-<p><code>.bash_profile</code> 在交互式、login 方式进入 <code>bash</code> 时加载</p>
-<p><code>.bashrc</code> 在交互式、non-login方式进入 <code>bash</code> 时加载</p>
-<p>当你打开一个终端，它不要求登录，你只会看到命令提示符，它在等你键入命令，这就是login方式。在其他版本的Unix或Linux中，这将不会运行 <code>.bash_profile</code>，而是一个不同的文件 <code>.bashrc</code>。</p>
-<p>当你远程登录你的服务器时，它要求你输入用户名和密码，这就是non-login方式。</p>
-<p>也就是说登录时只运行 <code>.bash_profile</code>，每个新的交互式shell都加载 <code>.bashrc</code>。</p>
-<p>但是，<strong>Mac系统并不遵循这一约定</strong>。当你打开一个新的终端窗口时，它将加载 <code>.bash_profile</code>而非 <code>.bashrc</code>。如果你用的  <code>bash shell</code>，那么你可以尝试在 <code>.bash_profile</code> 追加一行 <code>echo &quot;Hello&quot;</code> 并保存，然后打开新的终端窗口，你会发现 <code>Hello</code> 得以输出。</p>
-<p>如果你只在Mac系统下应用你的这些配置，那么一个 <code>.bash_profile</code> 就够了。</p>
-<p>如果你想让你的配置更具扩展性，那么就把配置放在 <code>.bashrc</code> 文件里，然后在 <code>.bash_profile</code> 里写入以下代码：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ -r ~/.bashrc ]; then</span><br><span class="line">   source ~/.bashrc</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>或这样的一行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -r ~/.bashrc ] &amp;&amp; . ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>目的都是一样的。</p>
-<p>对于 <code>zsh shell</code>，我们只需修改 <code>.zshrc</code>。不过为了提高扩展性，最好不要把配置直接写在 <code>.zshrc</code> 里面。</p>
+        <h2 id="1-安装-predis"><a href="#1-安装-predis" class="headerlink" title="1. 安装 predis"></a>1. 安装 predis</h2><p>Laravel默认使用的 <code>redis client</code> 为 <code>predis</code>，<code>composer</code> 安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require predis/predis</span><br></pre></td></tr></table></figure>
+<h2 id="2-修改数据库配置"><a href="#2-修改数据库配置" class="headerlink" title="2. 修改数据库配置"></a>2. 修改数据库配置</h2><p>打开 <code>config/database.php</code> ，我们可以看到默认配置为：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'redis'</span> =&gt; [</span><br><span class="line"></span><br><span class="line">    <span class="string">'client'</span> =&gt; <span class="string">'predis'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'default'</span> =&gt; [</span><br><span class="line">        <span class="string">'host'</span> =&gt; env(<span class="string">'REDIS_HOST'</span>, <span class="string">'127.0.0.1'</span>),</span><br><span class="line">        <span class="string">'password'</span> =&gt; env(<span class="string">'REDIS_PASSWORD'</span>, <span class="keyword">null</span>),</span><br><span class="line">        <span class="string">'port'</span> =&gt; env(<span class="string">'REDIS_PORT'</span>, <span class="number">6379</span>),</span><br><span class="line">        <span class="string">'database'</span> =&gt; <span class="number">0</span>,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<p>我们添加一些内容，如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'redis'</span> =&gt; [</span><br><span class="line"></span><br><span class="line">    <span class="string">'client'</span> =&gt; <span class="string">'predis'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'default'</span> =&gt; [</span><br><span class="line">        <span class="string">'host'</span> =&gt; env(<span class="string">'REDIS_HOST'</span>, <span class="string">'127.0.0.1'</span>),</span><br><span class="line">        <span class="string">'password'</span> =&gt; env(<span class="string">'REDIS_PASSWORD'</span>, <span class="keyword">null</span>),</span><br><span class="line">        <span class="string">'port'</span> =&gt; env(<span class="string">'REDIS_PORT'</span>, <span class="number">6379</span>),</span><br><span class="line">        <span class="string">'database'</span> =&gt; <span class="number">0</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">'session'</span> =&gt; [</span><br><span class="line">        <span class="string">'host'</span> =&gt; env(<span class="string">'REDIS_HOST'</span>, <span class="string">'127.0.0.1'</span>),</span><br><span class="line">        <span class="string">'password'</span> =&gt; env(<span class="string">'REDIS_PASSWORD'</span>, <span class="keyword">null</span>),</span><br><span class="line">        <span class="string">'port'</span> =&gt; env(<span class="string">'REDIS_PORT'</span>, <span class="number">6379</span>),</span><br><span class="line">        <span class="string">'database'</span> =&gt; <span class="number">1</span>,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<p><strong>这里不做修改其实也是可以跑的。</strong></p>
+<p>这样做的好处是，<code>Cache</code> 和 <code>Session</code> 可以分离开来。我们知道，一个运行中的项目，清理Cache是一个很正常的操作，<strong>如果不分离，保持登录态的所有用户将被强制登出</strong>。</p>
+<p>对 <code>redis</code> 不太了解的小伙伴可能不知道 <code>database</code> 的值为何用0，1，这是因为 <code>redis</code> 默认有16个数据库，编号为0~15，可以实现对不同功能的隔离作用。</p>
+<h2 id="3-修改Session配置"><a href="#3-修改Session配置" class="headerlink" title="3. 修改Session配置"></a>3. 修改Session配置</h2><p>打开 <code>config/session.php</code> ，我们可以看到默认配置有这么一行：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'connection'</span> =&gt; <span class="string">'null'</span>,</span><br></pre></td></tr></table></figure>
+<p>我们将其改为 <code>session</code> 即可：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'connection'</span> =&gt; <span class="string">'session'</span>,</span><br></pre></td></tr></table></figure>
+<p>此处的 <code>session</code> 对应的是我们上一步的 <code>session</code>。</p>
+<h2 id="4-修改ENV配置"><a href="#4-修改ENV配置" class="headerlink" title="4. 修改ENV配置"></a>4. 修改ENV配置</h2><p>将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SESSION_DRIVER=file</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SESSION_DRIVER=redis</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
 
       
     </div>
@@ -359,7 +356,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mac/" rel="tag"># mac</a>
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+            <a href="/tags/laravel/" rel="tag"># laravel</a>
           
         </div>
       
@@ -372,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/26/Hamming-Distance.html" rel="next" title="Hamming Distance(汉明距离)">
-                <i class="fa fa-chevron-left"></i> Hamming Distance(汉明距离)
+              <a href="/2018/01/27/mac-configuration-environment-variables.html" rel="next" title="Mac配置环境变量">
+                <i class="fa fa-chevron-left"></i> Mac配置环境变量
               </a>
             
           </div>
@@ -381,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/24/Laravel-uses-redis-as-a-session-driver.html" rel="prev" title="Laravel使用redis作为session驱动">
-                Laravel使用redis作为session驱动 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局配置"><span class="nav-number">1.</span> <span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户配置"><span class="nav-number">2.</span> <span class="nav-text">用户配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装-predis"><span class="nav-number">1.</span> <span class="nav-text">1. 安装 predis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-修改数据库配置"><span class="nav-number">2.</span> <span class="nav-text">2. 修改数据库配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-修改Session配置"><span class="nav-number">3.</span> <span class="nav-text">3. 修改Session配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-修改ENV配置"><span class="nav-number">4.</span> <span class="nav-text">4. 修改ENV配置</span></a></li></ol></div>
             
 
           </div>
